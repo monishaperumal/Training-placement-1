@@ -1,0 +1,45 @@
+# Function without arguments
+def greet():
+    print("Hello, Monisha!")
+
+# Function with arguments
+def add(a, b):
+    return a + b
+
+# Function with default argument
+def greet_user(name="Monisha"):
+    print(f"Hello, {name}!")
+
+# Function with multiple arguments
+def introduce(name, age):
+    print(f"My name is {name} and I am {age} years old.")
+
+# Function with variable arguments (*args and **kwargs)
+def sum_numbers(*args):
+    return sum(args)
+
+def display_info(**kwargs):
+    for key, value in kwargs.items():
+        print(f"{key}: {value}")
+
+# Main function to call all the above functions
+def main():
+    # Calling functions
+    greet()
+    
+    result = add(10, 5)
+    print("Sum:", result)
+    
+    greet_user()  # Calls with default argument
+    greet_user("John")  # Calls with a custom argument
+    
+    introduce("Monisha", 25)
+    
+    total = sum_numbers(1, 2, 3, 4, 5)
+    print("Total Sum:", total)
+    
+    display_info(name="Monisha", age=25, country="India")
+
+# Calling the main function
+if __name__ == "__main__":
+    main()
