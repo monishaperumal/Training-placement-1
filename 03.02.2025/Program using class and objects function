@@ -1,0 +1,33 @@
+# Define the Car class
+class Car:
+    # Constructor to initialize the attributes
+    def __init__(self, make, model, year, color):
+        self.make = make
+        self.model = model
+        self.year = year
+        self.color = color
+
+    # Method to display car details
+    def display_info(self):
+        print(f"Car Details: {self.year} {self.color} {self.make} {self.model}")
+
+    # Method to start the car
+    def start(self):
+        print(f"The {self.year} {self.make} {self.model} is now starting... Vroom Vroom!")
+
+    # Method to stop the car
+    def stop(self):
+        print(f"The {self.year} {self.make} {self.model} has stopped.")
+
+# Create instances (objects) of the Car class
+car1 = Car("Toyota", "Corolla", 2020, "Blue")
+car2 = Car("Honda", "Civic", 2022, "Red")
+
+# Access attributes and methods of the objects
+car1.display_info()
+car1.start()
+car1.stop()
+
+car2.display_info()
+car2.start()
+car2.stop()
