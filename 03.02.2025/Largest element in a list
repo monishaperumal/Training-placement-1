@@ -1,0 +1,13 @@
+def find_largest(lst):
+    if not lst:  # Check if the list is empty
+        return None
+    largest = lst[0]  # Assume the first element is the largest
+    for num in lst:
+        if num > largest:
+            largest = num
+    return largest
+
+# Example usage
+numbers = [10, 45, 78, 23, 89, 91, 67]
+largest_number = find_largest(numbers)
+print("The largest number in the list is:", largest_number)
