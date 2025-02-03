@@ -1,0 +1,14 @@
+def calculate_range(numbers):
+    # Find the minimum and maximum values in the list
+    min_value = min(numbers)
+    max_value = max(numbers)
+    
+    # Calculate the range
+    range_value = max_value - min_value
+    
+    return range_value
+
+# Example usage
+numbers = [3, 8, 15, 1, 6, 10]
+range_value = calculate_range(numbers)
+print(f"The range of the numbers is: {range_value}")
