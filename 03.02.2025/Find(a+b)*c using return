@@ -1,0 +1,10 @@
+def calculate_expression(a, b, c):
+    return (a + b) * c  # Returning the result
+
+# Example usage
+a = int(input("Enter value for a: "))  # Taking input for a
+b = int(input("Enter value for b: "))  # Taking input for b
+c = int(input("Enter value for c: "))  # Taking input for c
+
+result = calculate_expression(a, b, c)  # Function call
+print("Result:", result)  # Displaying the result
