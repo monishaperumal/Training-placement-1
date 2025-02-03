@@ -1,0 +1,37 @@
+# Function returning an integer
+def add_numbers(a: int, b: int) -> int:
+    return a + b
+
+# Function returning a string
+def greet(name: str) -> str:
+    return f"Hello, {name}!"
+
+# Function returning a list
+def get_even_numbers(n: int) -> list:
+    return [i for i in range(n) if i % 2 == 0]
+
+# Function returning a boolean
+def is_even(number: int) -> bool:
+    return number % 2 == 0
+
+# Main function
+def main():
+    # Call integer return type function
+    sum_result = add_numbers(10, 20)
+    print("Sum:", sum_result)
+
+    # Call string return type function
+    greeting = greet("Monisha")
+    print("Greeting:", greeting)
+
+    # Call list return type function
+    even_numbers = get_even_numbers(10)
+    print("Even Numbers:", even_numbers)
+
+    # Call boolean return type function
+    check_even = is_even(7)
+    print("Is 7 Even?", check_even)
+
+# Run the main function
+if __name__ == "__main__":
+    main()
