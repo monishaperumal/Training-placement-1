@@ -1,0 +1,17 @@
+# Function to check if a number is odd or even
+def check_even_odd(number):
+    if number % 2 == 0:
+        return f"{number} is Even"
+    else:
+        return f"{number} is Odd"
+
+# Main program
+if __name__ == "__main__":
+    # Get user input for the number
+    try:
+        number = int(input("Enter a number: "))
+        # Call the check_even_odd function
+        result = check_even_odd(number)
+        print(result)
+    except ValueError:
+        print("Please enter a valid integer.")
