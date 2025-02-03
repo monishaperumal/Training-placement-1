@@ -1,0 +1,100 @@
+class Book:
+    """Represents a book in the library."""
+    def __init__(self, title, author, isbn):
+        self.title = title
+        self.author = author
+        self.isbn = isbn
+        self.is_available = True  # Book is available by default
+
+    def __str__(self):
+        return f"{self.title} by {self.author} (ISBN: {self.isbn})"
+
+
+class Member:
+    """Represents a library member."""
+    def __init__(self, name, member_id):
+        self.name = name
+        self.member_id = member_id
+        self.borrowed_books = []  # List of borrowed books
+
+    def borrow_book(self, book):
+        """Borrows a book if it is available."""
+        if book.is_available:
+            book.is_available = False
+            self.borrowed_books.append(book)
+            print(f"{self.name} borrowed '{book.title}'.")
+        else:
+            print(f"Sorry, '{book.title}' is currently not available.")
+
+    def return_book(self, book):
+        """Returns a borrowed book."""
+        if book in self.borrowed_books:
+            book.is_available = True
+            self.borrowed_books.remove(book)
+            print(f"{self.name} returned '{book.title}'.")
+        else:
+            print(f"{self.name} did not borrow '{book.title}'.")
+
+    def __str__(self):
+        return f"{self.name} (ID: {self.member_id})"
+
+
+class Library:
+    """Represents the library system."""
+    def __init__(self):
+        self.books = []  # List of books in the library
+        self.members = []  # List of library members
+
+    def add_book(self, book):
+        """Adds a book to the library."""
+        self.books.append(book)
+        print(f"Added book: {book}")
+
+    def add_member(self, member):
+        """Registers a new library member."""
+        self.members.append(member)
+        print(f"Registered member: {member}")
+
+    def display_books(self):
+        """Displays available books."""
+        print("\nAvailable Books in the Library:")
+        for book in self.books:
+            status = "Available" if book.is_available else "Not Available"
+            print(f"{book} - {status}")
+
+    def find_book(self, title):
+        """Finds a book by title."""
+        for book in self.books:
+            if book.title.lower() == title.lower():
+                return book
+        return None
+
+
+# Example usage of the Library System
+if __name__ == "__main__":
+    library = Library()
+
+    # Adding books
+    book1 = Book("The Great Gatsby", "F. Scott Fitzgerald", "123456789")
+    book2 = Book("To Kill a Mockingbird", "Harper Lee", "987654321")
+    book3 = Book("1984", "George Orwell", "567891234")
+    
+    library.add_book(book1)
+    library.add_book(book2)
+    library.add_book(book3)
+
+    # Adding members
+    member1 = Member("Alice", "M001")
+    member2 = Member("Bob", "M002")
+    
+    library.add_member(member1)
+    library.add_member(member2)
+
+    # Borrowing and returning books
+    library.display_books()
+    member1.borrow_book(book1)
+    member2.borrow_book(book2)
+    library.display_books()
+
+    member1.return_book(book1)
+    library.display_books()
