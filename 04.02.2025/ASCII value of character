@@ -1,0 +1,12 @@
+# Program to find ASCII value of a character
+
+# Taking user input
+char = input("Enter a character: ")
+
+# Ensuring that only one character is entered
+if len(char) == 1:
+    # Getting ASCII value using ord() function
+    ascii_value = ord(char)
+    print(f"The ASCII value of '{char}' is {ascii_value}")
+else:
+    print("Please enter a single character.")
