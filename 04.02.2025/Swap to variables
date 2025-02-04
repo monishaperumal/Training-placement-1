@@ -1,0 +1,35 @@
+# Method 1: Using a Temporary Variable
+def swap_using_temp(a, b):
+    temp = a
+    a = b
+    b = temp
+    return a, b
+
+# Method 2: Using Python's Tuple Unpacking
+def swap_using_tuple(a, b):
+    a, b = b, a
+    return a, b
+
+# Method 3: Using Arithmetic Operations (Addition and Subtraction)
+def swap_using_arithmetic(a, b):
+    a = a + b
+    b = a - b
+    a = a - b
+    return a, b
+
+# Method 4: Using Bitwise XOR
+def swap_using_xor(a, b):
+    a = a ^ b
+    b = a ^ b
+    a = a ^ b
+    return a, b
+
+# Taking input from user
+x = int(input("Enter first number (x): "))
+y = int(input("Enter second number (y): "))
+
+# Demonstrate all methods
+print("\nSwapping using Temporary Variable:", swap_using_temp(x, y))
+print("Swapping using Tuple Unpacking:", swap_using_tuple(x, y))
+print("Swapping using Arithmetic Operations:", swap_using_arithmetic(x, y))
+print("Swapping using Bitwise XOR:", swap_using_xor(x
