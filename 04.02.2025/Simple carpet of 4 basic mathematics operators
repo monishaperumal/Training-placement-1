@@ -1,0 +1,32 @@
+# Simple Calculator Program
+
+# Taking user input for numbers
+num1 = float(input("Enter first number: "))
+num2 = float(input("Enter second number: "))
+
+# Taking user input for operation
+print("Select operation: +, -, *, /")
+operation = input("Enter operation: ")
+
+# Performing calculation based on operation
+if operation == '+':
+    result = num1 + num2
+    print(f"The result of {num1} + {num2} is {result}")
+
+elif operation == '-':
+    result = num1 - num2
+    print(f"The result of {num1} - {num2} is {result}")
+
+elif operation == '*':
+    result = num1 * num2
+    print(f"The result of {num1} * {num2} is {result}")
+
+elif operation == '/':
+    if num2 != 0:  # Checking for division by zero
+        result = num1 / num2
+        print(f"The result of {num1} / {num2} is {result}")
+    else:
+        print("Error! Division by zero is not allowed.")
+
+else:
+    print("Invalid operation! Please select +, -, *, or /.")
