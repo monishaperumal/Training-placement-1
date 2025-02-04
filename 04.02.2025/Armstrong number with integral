@@ -1,0 +1,25 @@
+# Function to check if a number is an Armstrong number
+def is_armstrong(number):
+    num_str = str(number)
+    num_digits = len(num_str)
+    sum_of_powers = sum(int(digit) ** num_digits for digit in num_str)
+    return sum_of_powers == number
+
+# Function to find all Armstrong numbers in a given interval
+def find_armstrong_numbers(start, end):
+    armstrong_numbers = [num for num in range(start, end + 1) if is_armstrong(num)]
+    return armstrong_numbers
+
+# Checking a single number
+num = int(input("Enter a number to check if it's an Armstrong number: "))
+if is_armstrong(num):
+    print(f"{num} is an Armstrong number.")
+else:
+    print(f"{num} is NOT an Armstrong number.")
+
+# Finding Armstrong numbers in an interval
+start = int(input("\nEnter the starting number of the interval: "))
+end = int(input("Enter the ending number of the interval: "))
+
+armstrong_list = find_armstrong_numbers(start, end)
+print(f"Armstrong numbers in the range {start} to {end}: {armstrong_list}")
