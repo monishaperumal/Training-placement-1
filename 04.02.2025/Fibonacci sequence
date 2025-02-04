@@ -1,0 +1,26 @@
+# Function to generate Fibonacci sequence using iteration
+def fibonacci_iterative(n):
+    fib_sequence = [0, 1]
+    for i in range(2, n):
+        fib_sequence.append(fib_sequence[-1] + fib_sequence[-2])
+    return fib_sequence[:n]
+
+# Function to generate Fibonacci sequence using recursion
+def fibonacci_recursive(n, a=0, b=1, sequence=None):
+    if sequence is None:
+        sequence = [a, b]
+    if len(sequence) >= n:
+        return sequence[:n]
+    sequence.append(sequence[-1] + sequence[-2])
+    return fibonacci_recursive(n, sequence[-2], sequence[-1], sequence)
+
+# Get user input
+num_terms = int(input("Enter the number of terms for Fibonacci sequence: "))
+
+# Generate and print the Fibonacci sequence (iterative)
+print("\nFibonacci Sequence (Iterative):")
+print(fibonacci_iterative(num_terms))
+
+# Generate and print the Fibonacci sequence (recursive)
+print("\nFibonacci Sequence (Recursive):")
+print(fibonacci_recursive(num_terms))
