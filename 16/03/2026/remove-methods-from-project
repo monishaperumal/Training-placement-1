@@ -1,0 +1,44 @@
+class Solution {
+    public List<Integer> remainingMethods(int n, int k, int[][] invocations) {
+        Set<Integer> suspiciousMethods = new HashSet<>();
+        suspiciousMethods.add(k);
+        boolean hasChanged = true;
+
+        while (hasChanged) {
+            hasChanged = false;
+            for (int[] invocation : invocations) {
+                int a = invocation[0];
+                int b = invocation[1];
+                if (suspiciousMethods.contains(a) && !suspiciousMethods.contains(b)) {
+                    suspiciousMethods.add(b);
+                    hasChanged = true;
+                }
+            }
+        }
+
+        for (int[] invocation : invocations) {
+            int a = invocation[0];
+            int b = invocation[1];
+            if (!suspiciousMethods.contains(a) && suspiciousMethods.contains(b)) {
+                return Arrays.asList(createArray(n));
+            }
+        }
+
+        List<Integer> remainingMethods = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            if (!suspiciousMethods.contains(i)) {
+                remainingMethods.add(i);
+            }
+        }
+        
+        return remainingMethods;
+    }
+
+    private static Integer[] createArray(int n) {
+        Integer[] result = new Integer[n];
+        for (int i = 0; i < n; i++) {
+            result[i] = i;
+        }
+        return result;
+    }
+}
